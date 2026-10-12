@@ -399,3 +399,13 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+/* Embedded CV PDF (_pages/cv.md) */
+.cv-pdf {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  margin-bottom: 1em;
+  border: 1px solid var(--global-border-color);
+}

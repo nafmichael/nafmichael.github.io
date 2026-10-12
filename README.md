@@ -8,8 +8,7 @@ Everything on the site is real content, so it can go live as it is. These are th
 
 1. **Links in the sidebar:** fill in `email` and `github` under `author:` in `_config.yml`. A link only shows once its field is filled in. The Contact section on the home page appears once `email` is set.
 2. **Home page:** `_pages/about.md` has no school or degree yet, and no line about what you're looking for.
-3. **CV:** `_pages/cv.md` has no dates, job title or education. To offer a PDF, save it as `files/resume.pdf` and the download link appears on its own.
-4. **Research pages:** the files in `_research/` are short. Each section has a comment listing what to add.
+3. **Research pages:** the files in `_research/` are short. Each section has a comment listing what to add.
 
 ## Where things are
 
@@ -21,7 +20,7 @@ Everything on the site is real content, so it can go live as it is. These are th
 | Home page | `_pages/about.md` |
 | Publications | one file per paper in `_publications/` (see below) |
 | Research areas | one file per area in `_research/`; the `order` number sets the position |
-| CV | `_pages/cv.md` |
+| CV | replace `files/resume.pdf` (keep the name); the CV page shows it and offers it as a download. The current copy has the phone number removed. |
 | Writing | one file per post in `_posts/`; start from `_drafts/note-template.md` |
 | PDFs and other downloads | `files/` |
 
