@@ -9,6 +9,8 @@
             <a href="{{ base_path }}/">{{ site.title }}</a>
           </li>
           {% for link in site.data.navigation.main %}
+            {% comment %}The Writing link stays hidden until _posts has at least one post.{% endcomment %}
+            {% if link.url == '/writing/' and site.posts.size == 0 %}{% continue %}{% endif %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}

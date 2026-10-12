@@ -11,10 +11,10 @@ A list of all the posts and pages found on the site. For you robots out there, t
 
 <h2>Pages</h2>
 {% for post in site.pages %}
-  {% include archive-single.html %}
+  {% unless post.sitemap == false %}{% include archive-single.html %}{% endunless %}
 {% endfor %}
 
-<h2>Posts</h2>
+{% if site.posts.size > 0 %}<h2>Posts</h2>{% endif %}
 {% for post in site.posts %}
   {% include archive-single.html %}
 {% endfor %}
@@ -22,7 +22,7 @@ A list of all the posts and pages found on the site. For you robots out there, t
 {% capture written_label %}'None'{% endcapture %}
 
 {% for collection in site.collections %}
-{% unless collection.output == false or collection.label == "posts" %}
+{% unless collection.output == false or collection.label == "posts" or collection.docs.size == 0 %}
   {% capture label %}{{ collection.label }}{% endcapture %}
   {% if label != written_label %}
   <h2>{{ label }}</h2>

@@ -1,0 +1,11 @@
+{% comment %}
+Lists the publications whose `research_area` matches this research page's file
+name (for example `research_area: agentic-systems`). Shows nothing if none do.
+{% endcomment %}
+{% assign area_pubs = site.publications | where: "research_area", page.slug | sort: "date" | reverse %}
+{% if area_pubs.size > 0 %}
+<h2>Related publications</h2>
+{% for pub in area_pubs %}
+  {% include publication-entry.html pub=pub %}
+{% endfor %}
+{% endif %}

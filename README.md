@@ -1,101 +1,86 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Michael Huang: personal site
 
-![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
+Source for my personal website. It is built with [Jekyll](https://jekyllrb.com) from the [Academic Pages](https://github.com/academicpages/academicpages.github.io) template and hosted on GitHub Pages.
 
-# Getting Started
+## Before you publish
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Edit site-wide configuration in `_config.yml` and double check that the `url` is the one that you just selected in the previous step and that `repository` reflects the correct path for your repository.
-1. Add your site content, upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, under: Settings -> Pages -> Source: GitHub Actions
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+Everything on the site is real content, so it can go live as it is. These are the gaps, most important first. Each one is also marked `TODO` in the file it belongs to; `grep -rn "TODO" _config.yml _pages _research` lists them all.
 
-See more info at https://academicpages.github.io/
+1. **Links in the sidebar:** fill in `email` and `github` under `author:` in `_config.yml`. A link only shows once its field is filled in. The Contact section on the home page appears once `email` is set.
+2. **Photo:** replace `images/profile.png` with your own square photo, keeping the file name.
+3. **Home page:** `_pages/about.md` has no school or degree yet, and no line about what you're looking for.
+4. **CV:** `_pages/cv.md` has no dates, job title or education. To offer a PDF, save it as `files/resume.pdf` and the download link appears on its own.
+5. **Research pages:** the files in `_research/` are short. Each section has a comment listing what to add.
 
-### Additional Tutorials
+## Where things are
 
-Additional tutorials for working with the Academic Pages template can be found at the following sites:
-- https://jayrobwilliams.com/posts/2020/06/academic-website/
+| To change | Edit |
+| --- | --- |
+| Name, sidebar bio, location, links, colour theme | `_config.yml` |
+| Links in the header | `_data/navigation.yml` |
+| Home page | `_pages/about.md` |
+| Publications | one file per paper in `_publications/` (see below) |
+| Research areas | one file per area in `_research/`; the `order` number sets the position |
+| CV | `_pages/cv.md` |
+| Writing | one file per post in `_posts/`; start from `_drafts/note-template.md` |
+| PDFs and other downloads | `files/` |
 
-## Running locally
+The Writing link stays out of the header until `_posts/` has its first post.
 
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+Talks and Teaching pages come with the template and are switched off. To turn one on, delete the `published: false` line at the top of its file in `_pages/`, uncomment its link in `_data/navigation.yml`, and add entries to the matching folder (`_publications/`, `_talks/`, `_teaching/`). The [template's own repository](https://github.com/academicpages/academicpages.github.io) has example entries for each.
 
-1. Clone the repository and made updates as detailed above.
+## Adding a publication
 
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distributions and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try running `sudo apt install ruby-dev ruby-bundler nodejs` again.
+Create a file in `_publications/` named `YYYY-MM-DD-short-title.md`:
 
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+```markdown
+---
+title: "Title of the paper"
+date: 2025-06-01
+venue: "Conference or journal name"
+authors: "First Author, Michael Huang, Last Author"
+research_area: multimodal-representation-learning  # optional: file name of a page in _research/
+paperurl: "https://..."   # optional: the paper (PDF or publisher page); each link adds a button
+arxiv: "2501.01234"       # optional
+doi: "10.1234/abcd"       # optional
+code: "https://github.com/..."  # optional
+---
 
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change to Markdown (*.md) and HTML files, while changes to the core template and configuration (i.e., `_config.yml`) will require stopping and restarting Jekyll.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
+Abstract, shown on the paper's own page.
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Papers are listed newest first, grouped by year. The names in `publication_names` under `author:` in `_config.yml` are shown in bold in the author list. With `research_area` set, the paper is also listed at the bottom of that research page.
 
-### Using the DevContainer in VS Code
+`site_theme` in `_config.yml` switches the colour theme: `default`, `air`, `sunrise`, `mint`, `dirt` or `contrast`. Each has a light and a dark version, and visitors can switch between them with the icon in the header.
 
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development container configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
+## Preview on your own computer
 
-# Maintenance
+You need Ruby and Bundler.
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+```bash
+bundle config set --local path 'vendor/bundle'
+bundle install
+bundle exec jekyll serve -l -H localhost
+```
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii), and additional maintainers would be welcome.
+The site is then at <http://localhost:4000> and reloads as you edit. Changes to `_config.yml` need a restart.
 
-## Bugfixes and enhancements
+## Publish on GitHub Pages
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of the template to your fork as well.
+The site is published from the `nafmichael/nafmichael.github.io` repository at <https://michaelswhuang.com>.
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize, although [rebasing](https://git-scm.com/docs/git-rebase) the changes from this template will work along with manually [cherry picking](https://git-scm.com/docs/git-cherry-pick) the relevant commits. If you are not comfortable with the Git command line, you can save your various `.yml` configuration files and Markdown files, delete the repository, and fork it again. 
+1. In the repository on GitHub, open Settings, then Pages, and set Source to **GitHub Actions**. The workflow in `.github/workflows/jekyll.yml` builds and deploys the site on every push to `master`.
+2. Until the domain is connected, the site is at <https://nafmichael.github.io>.
 
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+### Connecting michaelswhuang.com
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+1. At the domain registrar, add four `A` records for the bare domain (`@`): `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and `185.199.111.153`. Then add a `CNAME` record for `www` pointing to `nafmichael.github.io`.
+2. In the repository on GitHub, open Settings, then Pages, and enter `michaelswhuang.com` under Custom domain. No `CNAME` file is needed, because the site is deployed by a workflow.
+3. In your GitHub account settings (not the repository's), open Pages and verify the domain, so no one else's GitHub Pages site can claim it.
+4. Once GitHub has issued the certificate, which can take up to a day after DNS is in place, tick **Enforce HTTPS** in the repository's Pages settings.
+
+`url` in `_config.yml` is already set to `https://michaelswhuang.com`. If you change domains, change it there too.
+
+## Credits
+
+Built on [Academic Pages](https://github.com/academicpages/academicpages.github.io), which is a fork of [Minimal Mistakes](https://mademistakes.com/work/minimal-mistakes-jekyll-theme/) by Michael Rose. Both are released under the MIT License; see `LICENSE`.

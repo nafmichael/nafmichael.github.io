@@ -1,0 +1,18 @@
+---
+layout: archive
+title: "Research"
+permalink: /research/
+author_profile: true
+redirect_from:
+  - /portfolio/
+---
+
+{% include base_path %}
+
+<p>I work on large multimodal models and the agents built on them. My research has three threads: learning representations that put images and text in one space, the infrastructure that trains those models at scale, and agents whose work can be checked against a ground truth, which is what I now build for chip design as a founder. Before that, I worked on computer vision: GAN-based domain adaptation and scene understanding.</p>
+
+{% comment %}Areas come from _research/ and are listed by the `order` number in each file.{% endcomment %}
+{% assign areas = site.research | sort: "order" %}
+{% for post in areas %}
+  {% include archive-single.html %}
+{% endfor %}
