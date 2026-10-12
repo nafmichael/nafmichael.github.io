@@ -1,4 +1,6 @@
 ---
+header:
+  teaser: research/large-scale-training.svg
 title: "Training at scale"
 excerpt: "The infrastructure that makes large multimodal models trainable: an internal distributed training platform on Ray that delivered two generations of VLM-based models."
 collection: research

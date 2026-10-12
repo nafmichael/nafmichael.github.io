@@ -1,4 +1,6 @@
 ---
+header:
+  teaser: research/domain-adaptation-and-scene-understanding.svg
 title: "Domain adaptation and scene understanding"
 excerpt: "Earlier computer vision work: GAN-based image-to-image translation that generates training data for a new domain, such as day to night for vehicle detection, and real-time indoor layout estimation from a single image."
 collection: research

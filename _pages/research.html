@@ -9,10 +9,30 @@ redirect_from:
 
 {% include base_path %}
 
-<p>I work on large multimodal models and the agents built on them. My research has three threads: learning representations that put images and text in one space, the infrastructure that trains those models at scale, and agents whose work can be checked against a ground truth, which is what I now build for chip design as a founder. Before that, I worked on computer vision: GAN-based domain adaptation and scene understanding.</p>
+<p>My research is about large multimodal models: how to learn representations that put images and text in one space, and how to train them at scale. At Amazon Visual Search (A9) I led training of the team's CLIP model, which shipped worldwide in multiple Amazon production features, and of a general-purpose embedding model built on a vision-language model. This work brought image-text alignment into Amazon's visual search system (KDD 2024) and used large language models to understand multimodal search queries (CVPR 2024).</p>
 
-{% comment %}Areas come from _research/ and are listed by the `order` number in each file.{% endcomment %}
+<p>Models like these are only as good as the system that trains them. I worked on an internal distributed training platform built on Ray, which delivered two generations of VLM-based models.</p>
+
+<p>More recently I have worked on agents whose work can be checked. I fine-tuned models with LoRA for agentic orchestration of visual search, and as a founder I am now applying agentic AI to IC physical design, where deterministic EDA tool outputs act as the oracle for an agent's work.</p>
+
+<p>Before Amazon, I worked on computer vision for domains where labelled data is scarce: GAN-based image translation that generates training data for a new domain (ECCV 2018), day-to-night style transfer for nighttime vehicle detection, and indoor scene layout estimation.</p>
+
+{% comment %}
+One card per file in _research/, in `order`. The card image is `header.teaser`
+in each file, relative to images/; replace the illustrations in images/research/
+with figures from your own papers if you like.
+{% endcomment %}
 {% assign areas = site.research | sort: "order" %}
-{% for post in areas %}
-  {% include archive-single.html %}
+<div class="research-grid">
+{% for area in areas %}
+  <article class="research-card">
+    <h2 class="research-card__title"><a href="{{ base_path }}{{ area.url }}" rel="permalink">{{ area.title }}</a></h2>
+    {% if area.header.teaser %}
+    <a class="research-card__image" href="{{ base_path }}{{ area.url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ base_path }}/images/{{ area.header.teaser }}" alt="" loading="lazy">
+      <span class="research-card__overlay"></span>
+    </a>
+    {% endif %}
+  </article>
 {% endfor %}
+</div>

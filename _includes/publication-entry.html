@@ -1,6 +1,7 @@
 {% comment %}
 One publication: title, authors (the names in author.publication_names in _config.yml are bold), venue and year, then
-buttons for whichever links the entry has. Pass the entry as `pub`.
+buttons for whichever links the entry has. Pass the entry as `pub`; add
+`summary=true` to show the paper's own text (its summary) under the citation.
 {% endcomment %}
 {% include base_path %}
 {% assign pub = include.pub %}
@@ -16,6 +17,7 @@ buttons for whichever links the entry has. Pass the entry as `pub`.
     <p class="publication__authors">{{ authors }}</p>
   {% endif %}
   <p class="publication__venue">{% if pub.venue %}<i>{{ pub.venue }}</i>, {% endif %}{{ pub.date | date: "%Y" }}</p>
+  {% if include.summary and pub.content %}<div class="publication__summary">{{ pub.content }}</div>{% endif %}
   {% if pub.paperurl or pub.arxiv or pub.doi or pub.code or pub.slidesurl or pub.bibtexurl %}
   <p class="publication__links">
     {% if pub.paperurl %}<a class="btn btn--inverse btn--small" href="{{ pub.paperurl }}">Paper</a>{% endif %}

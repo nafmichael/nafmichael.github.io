@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="A daytime road scene translated into a nighttime one with the car preserved">
+  <rect width="800" height="500" fill="#eef1f5"/>
+  <!-- day scene -->
+  <rect x="50" y="110" width="290" height="280" rx="12" fill="#cfe6f2" stroke="#1f3a5f" stroke-width="4"/>
+  <circle cx="290" cy="160" r="26" fill="#e9b949"/>
+  <polygon points="54,386 150,250 240,250 336,386" fill="#8aa0b8"/>
+  <g stroke="#fff" stroke-width="6"><line x1="195" y1="270" x2="195" y2="295"/><line x1="195" y1="315" x2="195" y2="345"/></g>
+  <rect x="120" y="300" width="70" height="40" rx="8" fill="#2a9d8f"/><rect x="132" y="285" width="46" height="22" rx="6" fill="#2a9d8f"/>
+  <circle cx="137" cy="342" r="9" fill="#1f3a5f"/><circle cx="173" cy="342" r="9" fill="#1f3a5f"/>
+  <!-- arrow -->
+  <g stroke="#1f3a5f" stroke-width="6" fill="none" stroke-linecap="round"><path d="M365 250 H 430"/><path d="M415 235 L432 250 L415 265"/></g>
+  <!-- night scene -->
+  <rect x="460" y="110" width="290" height="280" rx="12" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="4"/>
+  <path d="M705 140 a24 24 0 1 0 14 40 a20 20 0 1 1 -14 -40z" fill="#e9b949"/>
+  <g fill="#fff"><circle cx="520" cy="150" r="2.5"/><circle cx="580" cy="135" r="2"/><circle cx="640" cy="165" r="2.5"/></g>
+  <polygon points="464,386 560,250 650,250 746,386" fill="#3d5878"/>
+  <g stroke="#8aa0b8" stroke-width="6"><line x1="605" y1="270" x2="605" y2="295"/><line x1="605" y1="315" x2="605" y2="345"/></g>
+  <rect x="530" y="300" width="70" height="40" rx="8" fill="#2a9d8f"/><rect x="542" y="285" width="46" height="22" rx="6" fill="#2a9d8f"/>
+  <circle cx="547" cy="342" r="9" fill="#0f1f33"/><circle cx="583" cy="342" r="9" fill="#0f1f33"/>
+  <polygon points="600,312 660,295 660,330" fill="#e9b949" opacity="0.6"/>
+</svg>

@@ -1,4 +1,6 @@
 ---
+header:
+  teaser: research/agentic-systems.svg
 title: "Agentic AI"
 excerpt: "Agents that do real work and whose work can be checked: fine-tuning for agentic orchestration of visual search, and verification-first agents for IC physical design, the idea I'm now pursuing as a founder."
 collection: research

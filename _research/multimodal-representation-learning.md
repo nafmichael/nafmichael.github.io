@@ -1,4 +1,6 @@
 ---
+header:
+  teaser: research/multimodal-representation-learning.svg
 title: "Multimodal representation learning"
 excerpt: "Embedding models that put images and text in one space, from a CLIP model shipped worldwide in Amazon production features to a general-purpose embedding model built on a vision-language model."
 collection: research
