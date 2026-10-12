@@ -7,16 +7,16 @@ Source for my personal website. It is built with [Jekyll](https://jekyllrb.com) 
 Everything on the site is real content, so it can go live as it is. These are the gaps, most important first. Each one is also marked `TODO` in the file it belongs to; `grep -rn "TODO" _config.yml _pages _research` lists them all.
 
 1. **Links in the sidebar:** fill in `email` and `github` under `author:` in `_config.yml`. A link only shows once its field is filled in. The Contact section on the home page appears once `email` is set.
-2. **Photo:** replace `images/profile.png` with your own square photo, keeping the file name.
-3. **Home page:** `_pages/about.md` has no school or degree yet, and no line about what you're looking for.
-4. **CV:** `_pages/cv.md` has no dates, job title or education. To offer a PDF, save it as `files/resume.pdf` and the download link appears on its own.
-5. **Research pages:** the files in `_research/` are short. Each section has a comment listing what to add.
+2. **Home page:** `_pages/about.md` has no school or degree yet, and no line about what you're looking for.
+3. **CV:** `_pages/cv.md` has no dates, job title or education. To offer a PDF, save it as `files/resume.pdf` and the download link appears on its own.
+4. **Research pages:** the files in `_research/` are short. Each section has a comment listing what to add.
 
 ## Where things are
 
 | To change | Edit |
 | --- | --- |
 | Name, sidebar bio, location, links, colour theme | `_config.yml` |
+| Profile photo | `images/profile.jpg` (square; keep the file name) |
 | Links in the header | `_data/navigation.yml` |
 | Home page | `_pages/about.md` |
 | Publications | one file per paper in `_publications/` (see below) |

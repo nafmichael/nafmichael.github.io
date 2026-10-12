@@ -22,7 +22,7 @@ repository               : "nafmichael/nafmichael.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Michael Huang"
   publication_names: ["Michael Huang", "Sheng-Wei Huang"] # shown in bold in publication author lists
   pronouns         : # example: "she/her"  
