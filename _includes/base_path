@@ -1,5 +1,6 @@
-{% if site.url %}
-  {% assign base_path = site.url | append: site.baseurl %}
-{% else %}
-  {% assign base_path = site.github.url %}
-{% endif %}
+{% comment %}
+Links within the site are root-relative (e.g. /assets/css/main.css), so the site
+works on any address: nafmichael.github.io, michaelswhuang.com or localhost.
+Full addresses that need the domain (canonical, sitemap, feed, social images)
+use site.url directly.
+{% endcomment %}{% assign base_path = site.baseurl %}
